@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ListSystem from './listSystem';
 
+
 export default class DoubleList extends Component {
         
     constructor()
@@ -11,9 +12,18 @@ export default class DoubleList extends Component {
          
     }
     
+    
+    componentWilldMount()
+    {
+        
+        //subscribe here
+        
+        
+        
+    }
      
   render() {
-      console.log("in render")
+       
     return (
       
         <div>
@@ -28,7 +38,7 @@ export default class DoubleList extends Component {
                  
                <tr><td>&nbsp;</td>
                   <td>&nbsp;</td>
-                  <td id="compareButtonContainer"><button>Select</button></td></tr>
+                  <td id="compareButtonContainer"><button className="btn btn-primary">Select</button></td></tr>
        </tbody>
             </table>
             </div>

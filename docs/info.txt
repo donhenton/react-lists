@@ -1,0 +1,19 @@
+postal.subscribe({
+                channel: "restaurants-system",
+                topic: "item.save.request.complete.review",
+                callback: function (data, envelope) {
+                    if (!me.checkForError(data))
+                        me.processSaveReviewComplete(data.confirmedData)
+                   
+                }
+            }); 
+
+
+ postal.publish({
+            channel: "restaurants-system",
+            topic: "item.delete.request" ,
+            data:  item 
+        });
+
+
+import postal from 'postal';
