@@ -1,6 +1,7 @@
 import React from 'react';
 import { Component } from 'react';
 import { render } from 'react-dom'
+import DoubleList from './doubleList';
  
 
 export default class Main extends Component {
@@ -18,8 +19,9 @@ export default class Main extends Component {
     return (
       
       
-       
-         <div> get a job</div>
+         <div id="listContainer">
+         <DoubleList />
+         </div>
       
        
     );

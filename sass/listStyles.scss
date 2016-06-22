@@ -1,3 +1,303 @@
+@import "components/reset";
+@import "components/typography";
+@import "components/modular";
+@import "components/myMenu";
+@import "components/tables";
+@import "components/buttons";
+
+
 body {
+    margin: 40px;
+}
+
+ 
+$box-width: 500px;
+
+#listContainer
+{
+    background-color: white;
+    padding: 10px;
+
+    h3
+    {
+        font-family:graphikExtralight,Helvetica,Arial,sans-serif;
+        font-size:25px;
+        font-weight:100;
+        // height: 50px;
+    }
+    margin: 50px auto auto auto;
+    width: 100%;
+
+    .entryContainer
+    {
+        
+        
+        width: 100%;
+        border:   double blue; 
+
+
+        .search {
+
+            
+            
+            
+            
+            opacity:.5;
+            float: right; 
+            font-size: 30px; 
+            margin-right: 5px; 
+             
+             
+
+        }
+
+
+        .itemList
+        {
+
+            height: 350px;
+            overflow: auto;
+            padding: 0px;
+            margin: 0px;
+
+            .itemListItem
+            {
+                background-color: white;
+                font-family:graphikExtralight,Helvetica,Arial,sans-serif;
+                font-size:20px;
+                font-weight:700;
+                height: 50px;
+                border-bottom: thin solid #ccc;
+                padding-left: 10px;
+                padding-top: 10px;
+                cursor:pointer;
+
+                &.itemSelected
+                {
+                    opacity: 0.2;
+                    cursor: not-allowed
+                }
+
+                &.itemHidden
+                {
+                    display:none;
+                }
+
+            }
+
+
+
+
+        }
+
+        .entryBoxContainerBackground
+        {
+            background-color: #aaa;
+            padding: 5px;
+        }
+
+
+        .entryBoxContainer
+        {
+            background-color: white;
+            height: 35px;
+
+
+        }
+        .entry
+        {
+
+           float:left;
+            background-color:#FFF;
+            min-height:30px;
+            margin-top: 1px;
+            height:30px;
+            width:92%;
+            font-family:graphikExtralight,Helvetica,Arial,sans-serif;
+            font-size:1.8em;
+            font-weight:100;
+            border: none; 
+            
+
+        }
+
+
+    }
+
+    //both of the columns combined;
+    #comparisonContainer
+    {
+        width: 100%;
+        background-color: white;
+        td
+        {
+            padding: 10px;
+        }
+
+        #compareButtonContainer
+        {
+            text-align: right;
+        }
+
+        #vsText
+        {
+            vertical-align: middle;
+
+            text-align: center;
+            width: 10%;
+        }
+        margin: auto auto;
+
+
+
+
+    }   // end #reactContainer
+
+
+    
+    .compareButton
+{
+    background: none repeat scroll 0 0 #00aeef;
+    border: 0;
+    border-radius: .3em;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    // height: 2.5em;
+    margin-right: 20px;
+    padding: 10px;
+    float: right;
+
+
+    &.buttonDisabled
+    {
+        opacity: 0.4;
+        cursor: not-allowed
+    }
+}
+    
+
+}
+
+
+
+
+///// modal animation
+.comparison-modal
+{ 
+.modal-row
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+     
+}
+.modal-cancel-link
+{
+    color: #00aeef;
+    float: right;
+    cursor: pointer;
+    margin: 10px 10px;
+     
+      &:hover 
+    {
+       color: #00aeef;
+       text-decoration:underline;
+    }
     
 }
+
+
+.modal-bkgMask
+{ 
+    background-color: rgba(0,0,0,0.7);
+    //opacity: 0.7;
+    width:100%;
+    height:100%;
+    position:absolute;
+
+    top:0%;
+    left:0%;
+    z-index:5;
+
+    &.modal-hidden
+    {
+        display: none;
+    }
+}
+
+.modal {
+
+
+
+    width: 60%;
+    position: absolute;
+    z-index: 10;
+    top:20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    border-radius:  1em;
+    background: white;
+    overflow:hidden;
+    font-family: GraphikRegular, arial, sans-serif;
+
+}
+
+.modal-anim-enter {
+    opacity: 0.00;
+    transform: scale(0.7);
+    transition: all 0.2s;
+}
+.modalContent
+{
+    width: 90%;
+    margin:auto;
+
+}
+.modalHeader
+{
+    background-color: #00aeef;
+    color: white;
+    height: 55px;
+    padding:10px;
+    //#0088bc
+
+    .btnClose
+    {
+        border: 1px solid white;
+        float: right;
+        padding: 10px;
+        margin-top: -5px;
+        margin-bottom: 5px;
+        cursor: pointer;
+
+        &:hover
+            {
+            text-decoration:underline;
+            background-color: #0088bc
+
+        }
+
+    }
+}
+
+.modal-anim-enter.modal-anim-enter-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-anim-leave {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.2s;
+}
+
+.modal-anim-leave.modal-anim-leave-active {
+    opacity: 0.00;
+    transform: scale(0.7);
+}
+
+}//end .comparison-modal

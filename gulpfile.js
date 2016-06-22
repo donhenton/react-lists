@@ -99,7 +99,7 @@ var sassProcess =
 
             return gulp.src(SASS_FILES)
                     .pipe(sass().on('error', sass.logError))
-                    .pipe(concat('restaurantStyles.css'))
+                    .pipe(concat('css/listStyles.css'))
                   //  .pipe(uglifycss())
                     .pipe(gulp.dest(targetLocation));
         };
@@ -109,17 +109,16 @@ gulp.task('sass', function () {
 
 });
 
-//gulp.task('copy-assets', function () {
-//    
-//      gulp.src(['./src/html/imgs/**/*'] )
-//              .pipe(gulp.dest(targetLocation+'/images'));
-//
-//       gulp.src(['./src/bower/bootstrap/dist/**/*'] )
-//              .pipe(gulp.dest(targetLocation+'/bootstrap'));         
-// 
-//    
-//    
-//});
+gulp.task('copy-assets', function () {
+    
+      gulp.src(['./src/html/css/**/*'] )
+              .pipe(gulp.dest(targetLocation+'/css'));
+
+            
+ 
+    
+    
+});
 
 
 gulp.task('watch', function () {
@@ -134,10 +133,10 @@ gulp.task('watch', function () {
 
     });
 
-//    watch(WATCH_JS, function (events, done) {
-//
-//        gulp.start('build');
-//    });
+    watch(WATCH_JS, function (events, done) {
+
+        gulp.start('build');
+    });
 
     watch(MAIN_HTML_FILE, function (events, done) {
         gutil.log("starting html change");
@@ -161,4 +160,4 @@ gulp.task('serve', function (done) {
             }));
 });
 gulp.task('release', gulpsync.sync(['clean','build', 'sass']));
-gulp.task('dev', gulpsync.sync(['clean', 'build', 'sass',  'copy-html', 'watch', 'serve']));
+gulp.task('dev', gulpsync.sync(['clean', 'build', 'sass', 'copy-assets',  'copy-html', 'watch', 'serve']));
