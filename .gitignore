@@ -1,0 +1,8 @@
+/node_modules
+bundle.js
+npm-debug.log
+/nbproject/private/
+/target/
+.DS_Store
+/.DS_Store
+/src/bower/
