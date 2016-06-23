@@ -1,9 +1,9 @@
 import React from 'react';
-        import { Component } from 'react';
-        import postal from 'postal';
-        import ListItem from './listItem';
-        import utils from './utils';
-        export default class ListSystem extends Component {
+import { Component } from 'react';
+import postal from 'postal';
+import ListItem from './listItem';
+import utils from './utils';
+export default class ListSystem extends Component {
 
         constructor()
         {
