@@ -17,7 +17,7 @@ export default class ListItem extends ListenerBase {
        let css = "btn btn-primary pull-right hidden";
        var keyCount = Object.keys(this.state.selections).length;
         
-       if (keyCount == 2)
+       if (keyCount > 1)
        {
            css = "btn btn-primary pull-right";
        }
