@@ -21,8 +21,9 @@ export default class ListItem extends Component {
     {
         
         var newState = {isSelected: false,hidden: false};
+        var me = this;
        
-       
+            ////typeahead filter ////////////////////
             if (!nextProps.filter)
             {
                 //false
@@ -43,7 +44,20 @@ export default class ListItem extends Component {
                 {
                     newState.hidden = true;
                 }
-            }    
+            } 
+            ///// grey out and selections ////////////////////////
+            //{"alpha": 8, "beta":22}
+             //console.log("listItem Selections "+JSON.stringify(nextProps.selections))  
+             for(var k in nextProps.selections)
+             {
+                 var id = nextProps.selections[k].id;
+                 if (this.props.item.id == id)
+                 {
+                    newState.isSelected = true;
+                    break;
+                 }
+             }
+             
        
        
        this.setState(newState);
@@ -66,13 +80,20 @@ export default class ListItem extends Component {
         
     }
     
+    onClick()
+    {
+         if (!this.state.isSelected && !this.state.hidden)
+         {
+            this.props.clickCallBack(this.props.item);
+         }
+    }
      
   render() {
       
     return (
       
       
-        <li   className={this.computeCSS()}>{this.props.item.name}</li>
+        <li  onClick={this.onClick.bind(this)} className={this.computeCSS()}>{this.props.item.name}</li>
       
        
     );
