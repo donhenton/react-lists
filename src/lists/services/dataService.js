@@ -1,4 +1,5 @@
 import postal from 'postal';
+import utils from './../components/utils'
 
 export default class DataService  {
         
