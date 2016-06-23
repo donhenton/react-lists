@@ -31,7 +31,7 @@ export default class ListItem extends ListenerBase {
     return (
       
       
-        <button className={this.renderCSS()}>Select</button>
+        <button className={this.renderCSS()}>Add Third Restaurant</button>
       
        
     );
