@@ -15,6 +15,19 @@ export default class ListItem extends Component {
     componentWillMount()
     {
         this.state = {isSelected: false, hidden: false};
+        if (this.props.selections)
+        {
+                for(var k in this.props.selections)
+                {
+                    var id = this.props.selections[k].id;
+                    if (this.props.item.id == id)
+                    {
+                       this.state.isSelected = true;
+                       break;
+                    }
+                }
+         }
+        
     }
     
     componentWillReceiveProps(nextProps)

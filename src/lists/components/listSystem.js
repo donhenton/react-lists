@@ -22,18 +22,24 @@ export default class ListSystem extends Component {
                });
         
         }
-
+        
         componentWillMount()
         {
-
-                this.state = {items: [],filterString: null,selections:{}};
+                
+                var newSelections = {};
+                if (this.props.selections)
+                {
+                     console.log(this.props.listName+" props "+JSON.toString(this.props.selections))
+                    newSelections = this.props.selections
+                }
+                this.state = {items: [],filterString: null,selections:newSelections};
                 var me = this;
                    
                 postal.subscribe({
                 channel: "list-system",
                         topic: "loadData",
                         callback: function (data, envelope) {
-                            console.log("list "+me.props.listName+" "+data.length);
+                           // console.log("list "+me.props.listName+" "+data.length);
                             if (me.state.items.length == 0)
                             {
                                 me.setState({items: data});

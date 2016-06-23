@@ -3,7 +3,7 @@ import { Component } from 'react';
 import ListSystem from './listSystem';
 import Reporting from './reporting'
 import SelectButton from './selectButton'
-import Modal from './modal'
+import ThirdModal from './thirdModal'
 import postal from 'postal';
 
 export default class DoubleList extends Component {
@@ -61,12 +61,8 @@ export default class DoubleList extends Component {
             </div>
     
     
-            <Modal ref="selectionModal"  modalLabel="Select Third Restaurant" modalClassName="comparison-modal">
-            <div className="third-list">
-                <ListSystem listName="gamma"/>
-            </div>
-            </Modal>
-      
+            <ThirdModal ref="selectionModal"  modalLabel="Select Third Restaurant" modalClassName="comparison-modal" />
+            
     
       </div>
     

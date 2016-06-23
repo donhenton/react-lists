@@ -93,7 +93,7 @@ export default class Modal extends Component {
                
                    <div className="modalHeader"><span>{this.props.modalLabel}</span> <span onClick={this.cancel.bind(this)} className='btnClose'>X</span></div>
                   <div className="modalContent">
-                  {this.props.children}
+                     {this.props.children}
                   </div>
                   
                 </div>  
@@ -109,5 +109,6 @@ export default class Modal extends Component {
   
 }
  Modal.defaultProps = {
-    modalLabel: 'Default Label' 
+    modalLabel: 'Default Label' ,
+    modalClassName: 'comparison-modal'
 };
