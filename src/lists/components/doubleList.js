@@ -3,6 +3,7 @@ import { Component } from 'react';
 import ListSystem from './listSystem';
 import Reporting from './reporting'
 import SelectButton from './selectButton'
+import Modal from './modal'
 
 export default class DoubleList extends Component {
         
@@ -13,7 +14,10 @@ export default class DoubleList extends Component {
          
     }
     
-    
+    componentWillMount()
+    {
+         
+    }
   
      
   render() {
@@ -47,11 +51,16 @@ export default class DoubleList extends Component {
                 <Reporting />
                 </div>
 
-                </div>
-           </div>
+            </div>
+    
+    
+            <Modal ref="selectionModal"   transitionName="modal-anim" modalClassName="comparison-modal" />
+      
+    
+      </div>
     
        
-         
+      
       
        
     );
