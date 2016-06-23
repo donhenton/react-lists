@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import ListSystem from './listSystem';
 import Reporting from './reporting'
-
+import SelectButton from './selectButton'
 
 export default class DoubleList extends Component {
         
@@ -41,7 +41,7 @@ export default class DoubleList extends Component {
             <div>
              
                 <div className="columnRight">
-                 <button className="btn btn-primary pull-right">Select</button>
+                 <SelectButton />
                 </div>
                 <div className="columnLeft">
                 <Reporting />
