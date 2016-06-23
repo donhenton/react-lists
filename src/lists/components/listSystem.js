@@ -11,17 +11,33 @@ export default class ListSystem extends Component {
         }
 
 
+        componentDidMount()
+        {
+            
+              
+               postal.publish({
+                   channel: "list-system",
+                   topic: "refreshData" ,
+                  data:  {}
+               });
+        
+        }
+
         componentWillMount()
         {
 
-           this.state = {items: [],filterString: null,selections:{}};
+                this.state = {items: [],filterString: null,selections:{}};
                 var me = this;
+                   
                 postal.subscribe({
                 channel: "list-system",
                         topic: "loadData",
                         callback: function (data, envelope) {
-
-                        me.setState({items: data});
+                            console.log("list "+me.props.listName+" "+data.length);
+                            if (me.state.items.length == 0)
+                            {
+                                me.setState({items: data});
+                            }
                         }
                });
                
@@ -104,11 +120,11 @@ clickCallBack(item)
         render() {
         var me = this;
                 return (
-                        <table  id = {'entry-' + this.props.entryType} className = "entryContainer">
+                        <table  id = {'entry-' + this.props.listName} className = "entryContainer">
                         <tbody>
                         <tr><td className = "entryBoxContainerBackground">
                         <div  className = "entryBoxContainer">
-                        <input  id = {this.props.entryType + '-input'} onKeyUp = {this.filterList.bind(this)} className = "entry" / >
+                        <input  id = {this.props.listName + '-input'} onKeyUp = {this.filterList.bind(this)} className = "entry" / >
                         <span className = "search"> <i className = "fi-magnifying-glass" > </i></span>
                         </div>
                         </td></tr>

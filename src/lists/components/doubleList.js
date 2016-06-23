@@ -4,6 +4,7 @@ import ListSystem from './listSystem';
 import Reporting from './reporting'
 import SelectButton from './selectButton'
 import Modal from './modal'
+import postal from 'postal';
 
 export default class DoubleList extends Component {
         
@@ -19,6 +20,12 @@ export default class DoubleList extends Component {
          
     }
   
+  showModal()
+  {
+      
+        
+        this.refs.selectionModal.open();
+  }
      
   render() {
        
@@ -45,7 +52,7 @@ export default class DoubleList extends Component {
             <div>
              
                 <div className="columnRight">
-                 <SelectButton />
+                 <SelectButton  clickAction={this.showModal.bind(this)} />
                 </div>
                 <div className="columnLeft">
                 <Reporting />
@@ -54,7 +61,11 @@ export default class DoubleList extends Component {
             </div>
     
     
-            <Modal ref="selectionModal"   transitionName="modal-anim" modalClassName="comparison-modal" />
+            <Modal ref="selectionModal"  modalLabel="Select Third Restaurant" modalClassName="comparison-modal">
+            <div className="third-list">
+                <ListSystem listName="gamma"/>
+            </div>
+            </Modal>
       
     
       </div>

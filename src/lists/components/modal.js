@@ -23,19 +23,20 @@ import ReactCSSTransitionGroup  from 'react-addons-css-transition-group';
  */
 export default class Modal extends Component {
         
-    constructor()
+   
+    constructor(props)
     {
-        super();
+         
+        super(props);
          
           
     }
     
-     
     
     componentWillMount()
     {
-
-       this.props =  {modalLabel: 'Modal Label',modalClassName: "simple-modal"};
+        
+       
        var isOpen = false;
        if (this.props.isOpen)
        {
@@ -80,16 +81,17 @@ export default class Modal extends Component {
   render()
    {
             
+           var me = this;
            if(this.state.isOpen)
            {
             return (
               <div className={this.props.modalClassName}>
               <div className={this.backgroundCSS()}></div>
-              <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={5} transitionLeaveTimeout={5}>
+              <ReactCSSTransitionGroup  transitionName="modal-anim" transitionEnterTimeout={5} transitionLeaveTimeout={5}>
               
                <div className="modal">
                
-                   <div className="modalHeader"><span>{this.props.modalLabel}</span> <span onClick={this.cancel} className='btnClose'>X</span></div>
+                   <div className="modalHeader"><span>{this.props.modalLabel}</span> <span onClick={this.cancel.bind(this)} className='btnClose'>X</span></div>
                   <div className="modalContent">
                   {this.props.children}
                   </div>
@@ -99,10 +101,13 @@ export default class Modal extends Component {
               </div>
             ) 
            } else {
-            return <ReactCSSTransitionGroup transitionName={this.props.transitionName} transitionEnterTimeout={5} transitionLeaveTimeout={5} />
+            return <ReactCSSTransitionGroup  transitionName="modal-anim" transitionEnterTimeout={5} transitionLeaveTimeout={5} />
           }
          
    }
    
   
 }
+ Modal.defaultProps = {
+    modalLabel: 'Default Label' 
+};

@@ -10,7 +10,7 @@ body {
     margin: 40px;
 }
 
- 
+
 $box-width: 500px;
 
 #listContainer
@@ -30,24 +30,24 @@ $box-width: 500px;
 
     .entryContainer
     {
-        
-        
+
+
         width: 500px;
         border:   double blue; 
 
 
         .search {
 
-            
-            
-            
-            
+
+
+
+
             opacity:.5;
             float: right; 
             font-size: 30px; 
             margin-right: 5px; 
-             
-             
+
+
 
         }
 
@@ -107,7 +107,7 @@ $box-width: 500px;
         .entry
         {
 
-           float:left;
+            float:left;
             background-color:#FFF;
             min-height:30px;
             margin-top: 1px;
@@ -117,7 +117,7 @@ $box-width: 500px;
             font-size:1.8em;
             font-weight:100;
             border: none; 
-            
+
 
         }
 
@@ -154,29 +154,29 @@ $box-width: 500px;
     }   // end #reactContainer
 
 
-    
+
     .compareButton
-{
-    background: none repeat scroll 0 0 #00aeef;
-    border: 0;
-    border-radius: .3em;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-size: 1em;
-    // height: 2.5em;
-    margin-right: 20px;
-    padding: 10px;
-    float: right;
-
-
-    &.buttonDisabled
     {
-        opacity: 0.4;
-        cursor: not-allowed
+        background: none repeat scroll 0 0 #00aeef;
+        border: 0;
+        border-radius: .3em;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 1em;
+        // height: 2.5em;
+        margin-right: 20px;
+        padding: 10px;
+        float: right;
+
+
+        &.buttonDisabled
+        {
+            opacity: 0.4;
+            cursor: not-allowed
+        }
     }
-}
-    
+
 
 }
 
@@ -186,118 +186,118 @@ $box-width: 500px;
 ///// modal animation
 .comparison-modal
 { 
-.modal-row
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-     
-}
-.modal-cancel-link
-{
-    color: #00aeef;
-    float: right;
-    cursor: pointer;
-    margin: 10px 10px;
-     
-      &:hover 
+    .modal-row
     {
-       color: #00aeef;
-       text-decoration:underline;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-top: 10px;
+
     }
-    
-}
-
-
-.modal-bkgMask
-{ 
-    background-color: rgba(0,0,0,0.7);
-    //opacity: 0.7;
-    width:100%;
-    height:100%;
-    position:absolute;
-
-    top:0%;
-    left:0%;
-    z-index:5;
-
-    &.modal-hidden
+    .modal-cancel-link
     {
-        display: none;
-    }
-}
-
-.modal {
-
-
-
-    width: 60%;
-    position: absolute;
-    z-index: 10;
-    top:20px;
-    left: 0;
-    right: 0;
-    margin: auto;
-
-    border-radius:  1em;
-    background: white;
-    overflow:hidden;
-    font-family: GraphikRegular, arial, sans-serif;
-
-}
-
-.modal-anim-enter {
-    opacity: 0.00;
-    transform: scale(0.7);
-    transition: all 0.2s;
-}
-.modalContent
-{
-    width: 90%;
-    margin:auto;
-
-}
-.modalHeader
-{
-    background-color: #00aeef;
-    color: white;
-    height: 55px;
-    padding:10px;
-    //#0088bc
-
-    .btnClose
-    {
-        border: 1px solid white;
+        color: $blue-color;
         float: right;
-        padding: 10px;
-        margin-top: -5px;
-        margin-bottom: 5px;
         cursor: pointer;
+        margin: 10px 10px;
 
-        &:hover
+        &:hover 
             {
+            color: #00aeef;
             text-decoration:underline;
-            background-color: #0088bc
-
         }
 
     }
-}
 
-.modal-anim-enter.modal-anim-enter-active {
-    opacity: 1;
-    transform: scale(1);
-}
 
-.modal-anim-leave {
-    opacity: 1;
-    transform: scale(1);
-    transition: all 0.2s;
-}
+    .modal-bkgMask
+    { 
+        background-color: rgba(0,0,0,0.7);
+        //opacity: 0.7;
+        width:100%;
+        height:100%;
+        position:absolute;
 
-.modal-anim-leave.modal-anim-leave-active {
-    opacity: 0.00;
-    transform: scale(0.7);
-}
+        top:0%;
+        left:0%;
+        z-index:5;
 
+        &.modal-hidden
+        {
+            display: none;
+        }
+    }
+
+    .modal {
+
+
+
+        width: 60%;
+        position: absolute;
+        z-index: 10;
+        top:20px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius:  1em;
+        background: white;
+        overflow:hidden;
+        font-family: GraphikRegular, arial, sans-serif;
+
+
+
+        .modal-anim-enter {
+            opacity: 0.00;
+            transform: scale(0.7);
+            transition: all 0.2s;
+        }
+        .modalContent
+        {
+               
+                 width:70%;
+                 margin: auto
+            
+        }
+        .modalHeader
+        {
+            background-color: $green-color;
+            color: white;
+            height: 55px;
+            padding:10px;
+            //#0088bc
+
+            .btnClose
+            {
+                border: 1px solid white;
+                float: right;
+                padding: 10px;
+                margin-top: -5px;
+                margin-bottom: 5px;
+                cursor: pointer;
+
+                &:hover
+                    {
+                    text-decoration:underline;
+                    background-color: #0088bc
+
+                }
+
+            }
+        }
+
+        .modal-anim-enter.modal-anim-enter-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .modal-anim-leave {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.2s;
+        }
+
+        .modal-anim-leave.modal-anim-leave-active {
+            opacity: 0.00;
+            transform: scale(0.7);
+        }
+    }
 }//end .comparison-modal

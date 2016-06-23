@@ -25,13 +25,19 @@ export default class ListItem extends ListenerBase {
        return css;
    }
    
+  clickAction()
+  {
+      
+      this.props.clickAction();
+      
+  }
      
   render() {
       
     return (
       
       
-        <button className={this.renderCSS()}>Add Third Restaurant</button>
+        <button onClick={this.clickAction.bind(this)}   className={this.renderCSS()}>Add Third Restaurant</button>
       
        
     );
