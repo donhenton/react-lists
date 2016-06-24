@@ -30,10 +30,20 @@ var gulpsync = require('gulp-sync')(gulp);
 var gulpif = require("gulp-if");
 var argv = require('yargs').argv;
 var rename = require("gulp-rename");
-
+var envify = require('envify');
+var fs = require('fs')
 
 var notify = require("./build_utils/build_utils").notify;
 var targetLocation = './target/'
+if (argv.production)
+{
+
+    targetLocation = './public_html/'
+}
+
+console.log("compiling to '"+targetLocation+"'")
+
+
 /* livereload loads this page you only get one  
  * 
  * the chrome livereload plugin needs to be installed
@@ -47,15 +57,24 @@ var MAIN_HTML_FILE = ['./src/html/index.html'];
 
 function Bundle() {
 
+    var envType = 'development';
+    var debugType = true;
+    if (argv.production)
+    {
+        envType = 'production';
+        debugType = false;
+    }
+    console.log("envType "+envType);
+    
     var Bundler = browserify({
         entries: './src/index.js',
-        transform: [["babelify", {"presets": ["es2015","react"]}]],
+        transform: [["babelify", {"presets": ["es2015","react"]}],["envify",{NODE_ENV: envType,'global': true, '_': 'purge', }]],
         extensions: ['.js'],
-        debug: true,
+        debug: debugType,
         cache: {},
         packageCache: {},
         fullPaths: true
-    });
+    });  
     return Bundler
             .bundle()
             .on('error', notify);
@@ -78,7 +97,7 @@ gulp.task('copy-html', function () {
 
 gulp.task('clean', function (  ) {
 
-    del(['target']);
+    del(['target','public_html']);
 
 });
 
