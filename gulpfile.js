@@ -159,5 +159,5 @@ gulp.task('serve', function (done) {
                 open: true
             }));
 });
-gulp.task('release', gulpsync.sync(['clean','build', 'sass']));
+gulp.task('release', gulpsync.sync(['clean','build', 'copy-assets',  'copy-html','sass']));
 gulp.task('dev', gulpsync.sync(['clean', 'build', 'sass', 'copy-assets',  'copy-html', 'watch', 'serve']));

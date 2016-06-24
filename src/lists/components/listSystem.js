@@ -29,7 +29,7 @@ export default class ListSystem extends Component {
                 var newSelections = {};
                 if (this.props.selections)
                 {
-                     console.log(this.props.listName+" props "+JSON.toString(this.props.selections))
+                    // console.log(this.props.listName+" props "+JSON.toString(this.props.selections))
                     newSelections = this.props.selections
                 }
                 this.state = {items: [],filterString: null,selections:newSelections};

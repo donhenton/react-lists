@@ -83,12 +83,13 @@ export default class ThirdModal extends Component {
     
    cancel()
    {
+        
         this.internalModal.cancel();
    } 
    
    open()
    {
-       //this.refs.thirdList.loadSelections(this.state.selections);
+        
        this.internalModal.open();
    }
    
@@ -114,9 +115,12 @@ export default class ThirdModal extends Component {
            var me = this;
             
             return (
-              <Modal ref={(ref) =>me.internalModal = ref}>
+              <Modal modalLabel="Select Third Resestaurant" ref={(ref) =>me.internalModal = ref}>
                      <div className="third-list">
                         <ListSystem ref="thirdList" selections={me.state.selections}  listName="gamma"/>
+                        <div className="row">
+                            <button onClick={me.cancel.bind(me)} className="btn btn-primary btn-red pull-right">Cancel</button>
+                        </div>
                      </div>
               </Modal>
             ) 
