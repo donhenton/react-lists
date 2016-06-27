@@ -137,6 +137,12 @@ h4 {
 .text-centered {
   text-align: center; }
 
+.space-left {
+  margin-left: 10px; }
+
+.space-right {
+  margin-right: 10px; }
+
 .columnLeft {
   width: 50%;
   float: left;

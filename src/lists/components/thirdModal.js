@@ -93,21 +93,7 @@ export default class ThirdModal extends Component {
        this.internalModal.open();
    }
    
-   backgroundCSS()
-   {
-       var bkgValue = "modal-bkgMask";
-       
-       if (this.state.isOpen == false)
-       {
-           bkgValue =  bkgValue + " modal-hidden";
-       }
-       
-       return bkgValue;
-       
-       
-   } 
-    
-    
+ 
     
   render()
    {
