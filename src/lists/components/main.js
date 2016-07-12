@@ -3,6 +3,7 @@ import { Component } from 'react';
 import { render } from 'react-dom'
 import DoubleList from './doubleList';
 import DataService from './../services/dataService';
+import NavComponent from './../../navComponent'
 
 export default class Main extends Component {
         
@@ -27,6 +28,7 @@ export default class Main extends Component {
       
       
          <div id="listContainer">
+         
          <DoubleList />
          </div>
       
