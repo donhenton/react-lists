@@ -67,7 +67,7 @@ export default class TabsPage extends Component {
        
         <div onClick={me.selectTab.bind(me)} className={me.computeTabCss()}>
                 <div className="demo-tab-text">
-                    {this.props.displayText} {this.props.arrayIndex} 
+                    {this.props.displayText}  
                     <div className='tab-close'>
                         <div onClick={me.removeTab.bind(me)}className='tab-close-x fi-x'></div>
                     </div>
