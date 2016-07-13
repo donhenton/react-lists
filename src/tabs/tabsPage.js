@@ -66,13 +66,13 @@ export default class TabsPage extends Component {
     
     getAddTabCss()
     {
-        let css = "add-tab";
+        let css = "add-tab add-tab-standalone ";
         
-        if (!(this.state) || this.state.currentTabIndex < 0)
+        if ((this.state) &&  this.state.tabs.length >0)
         {
-            css = css + "  add-tab-standalone";
+            css =   "add-tab ";
         }
-        if (this.state && (this.state.tabs.length == this.tabText.length))
+        if (this.state && (this.state.tabs.length === this.tabText.length))
         {
             css = css + " hidden";
         }
@@ -105,7 +105,20 @@ export default class TabsPage extends Component {
         return renderItems;
     }
      
-     
+   getBodyText()
+   {
+       let text = null;
+       if (this.state && this.state.currentTabIndex > -1)
+       {
+           
+           text = this.tabText[this.state.currentTabIndex];
+           
+           
+       }
+       
+       
+       return text;
+   }
      
   render() {
     let me = this;
@@ -123,9 +136,12 @@ export default class TabsPage extends Component {
                     
       </div>
        
-       <div className="tabBody"></div>
+       <div className="tabBody">
+       <div className="tabBody-inner">{me.getBodyText()}</div>
+                    
+       </div>
        
-       
+            
        
        </section>
        
