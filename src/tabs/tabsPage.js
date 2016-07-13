@@ -124,7 +124,7 @@ export default class TabsPage extends Component {
     {
         let css = "add-tab add-tab-standalone ";
         
-         if ((this.state) &&  this.state.tabs.length >0)
+         if ((this.state) &&  (this.countTabs() >0))
          {
              css =   "add-tab ";
          }
