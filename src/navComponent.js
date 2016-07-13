@@ -23,8 +23,8 @@ export default class NavComponent extends Component {
     return (
       
       <div className="linkContainer">
-         <Link className="TopLink" to="/">Tabs</Link> 
-         <Link className="TopLink" to="/tabs">Lists</Link> 
+         <Link className="TopLink" to="/react-lists/public_html">Tabs</Link> 
+         <Link className="TopLink" to="/react-lists/public_html/tabs">Lists</Link> 
       </div>
       
        
