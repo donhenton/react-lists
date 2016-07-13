@@ -4,6 +4,7 @@
 @import "components/myMenu";
 @import "components/tables";
 @import "components/buttons";
+@import "components/tabDemo";
 
 
 body {
@@ -13,6 +14,25 @@ body {
 
 $box-width: 500px;
 
+
+    .linkContainer
+    {  
+        margin-bottom: 20px;
+        .TopLink
+        {
+            background-color: $green-color;
+            text-decoration:none;
+            padding: 10px;
+            color: white;
+            margin-bottom: 20px;
+
+            &:hover
+                {
+                text-decoration:underline;
+            }
+        }
+
+    }
 #listContainer
 {
     background-color: white;
@@ -252,11 +272,11 @@ $box-width: 500px;
         }
         .modalContent
         {
-               
-                 width:70%;
-                 margin: 20px auto;
-                 padding: 20px 5px;
-            
+
+            width:70%;
+            margin: 20px auto;
+            padding: 20px 5px;
+
         }
         .modalHeader
         {
