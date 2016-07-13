@@ -10,7 +10,7 @@ export default class TabsPage extends Component {
     constructor()
     {
         super();
-        this.tabText = ['get a job', 'get a job 2', 'get a job 3']
+        
          
           
     }
@@ -18,22 +18,42 @@ export default class TabsPage extends Component {
     componentDidMount()
     {
         // tabs will contain the indices of existing tabs eg [0,1,2]
-        this.state = {currentTabIndex: -1,tabs: []}
+        this.state = {currentTab: [],tabs: []}
+        this.state.tabs = [
+            {text: 'get a job 0',id: 1,added: false, selected: false}, 
+            {text: 'get a job 1',id: 2,added: false, selected: false},
+            {text: 'get a job 2',id: 3,added: false, selected: false},  ]
+        
         let me = this;
         postal.subscribe({
         channel: "tab-system",
                 topic: "remove-tab",
                 callback: function (data, envelope) {
 
-                    //data will contain the index
-                    let newTabs = me.state.tabs.filter((idx) =>
-                            {return (idx != data.arrayIndex)}
-                            
-                            )
-                     
-                    let newIndex = newTabs.length - 1;
-                    
-                    me.setState({tabs: newTabs,currentTabIndex: newTabs[newIndex]})
+                  let newTabs =    me.state.tabs.map((tab) => {
+                         
+                         if (tab.id == data.id)
+                         {
+                             tab.added = false;
+                              
+                         }
+                         tab.selected = false;
+                         return tab;
+                         
+                     });
+                 let lastIdx = -1;
+                 for (var i=newTabs.length-1; i> -1; i--)
+                 {
+                     if (newTabs[i].added == true && newTabs[i].selected == false)
+                     {
+                         newTabs[i].selected = true;
+                         break;
+                     }
+                 }
+                 
+                 
+                  
+                 me.setState({tabs: newTabs})
                    
 
                 }
@@ -42,9 +62,23 @@ export default class TabsPage extends Component {
          channel: "tab-system",
                 topic: "select-tab",
                 callback: function (data, envelope) {
+                          
 
-                    //data will contain the index
-                    me.setState({currentTabIndex: data.arrayIndex})                          
+                  let newTabs =    me.state.tabs.map((tab) => {
+                    tab.selected = false;     
+                    if (tab.id == data.id)
+                    {
+                        tab.selected = true;
+
+                    }
+                    
+                    return tab;
+                         
+                     });
+                
+                  me.setState({tabs: newTabs})
+
+
 
                 }
         });  
@@ -53,29 +87,51 @@ export default class TabsPage extends Component {
     
     addTab()
     {
-        let newTabs = JSON.parse(JSON.stringify(this.state.tabs));
-        if (newTabs.length < this.tabText.length)
-        {
-            let newIdx = newTabs.length;
-            newTabs.push(newIdx);
-            this.setState({tabs: newTabs,currentTabIndex: newIdx})
+         let mytabs = JSON.parse(JSON.stringify(this.state.tabs));
+         for(var i=0 ;i< mytabs.length;i++)
+         {
+              mytabs[i].selected = false;
+            
              
-        }
+         }
+         for(var i=0 ;i< mytabs.length;i++)
+         {
+             
+             if (mytabs[i].added === false)
+             {
+                 mytabs[i].added = true;
+                 mytabs[i].selected = true;
+                 break;
+             }
+             
+         }
+         this.setState({tabs: mytabs});
         
+    }
+    
+    countTabs()
+    {
+       let ct  =
+       this.state.tabs.filter((tab) =>
+               {
+                return tab.added;
+       })
+        
+       return ct.length;
     }
     
     getAddTabCss()
     {
         let css = "add-tab add-tab-standalone ";
         
-        if ((this.state) &&  this.state.tabs.length >0)
+         if ((this.state) &&  this.state.tabs.length >0)
+         {
+             css =   "add-tab ";
+         }
+         if (this.state && (this.countTabs() == this.state.tabs.length))
         {
-            css =   "add-tab ";
-        }
-        if (this.state && (this.state.tabs.length === this.tabText.length))
-        {
-            css = css + " hidden";
-        }
+             css = css + " hidden";
+         }
         
         
         return css;
@@ -89,16 +145,12 @@ export default class TabsPage extends Component {
         let me = this;
         if (this.state && this.state.tabs)
         {
-            
-            this.state.tabs.forEach((tabIdx) => {
-                
-                let displayText = me.tabText[tabIdx]
-                let selectState = false;
-                if (tabIdx === me.state.currentTabIndex)
+            this.state.tabs.map((tab) => {
+                if (tab.added)
                 {
-                    selectState = true;
+                    renderItems.push(<ItemTab displayText={tab.text} id={tab.id} key={tab.id} selected={tab.selected} /> )
                 }
-                renderItems.push(<ItemTab key={tabIdx} arrayIndex={tabIdx} selected={selectState} displayText = {displayText} />)
+                
             })
         }
         
@@ -108,12 +160,20 @@ export default class TabsPage extends Component {
    getBodyText()
    {
        let text = null;
-       if (this.state && this.state.currentTabIndex > -1)
+       if (this.state)
        {
            
-           text = this.tabText[this.state.currentTabIndex];
+           let selected = this.state.tabs.filter((tab) => {
+               
+               return tab.selected;
+               
+               
+           })
            
-           
+           if (selected && selected.length == 1)
+           {
+               text = selected[0].text
+           }
        }
        
        

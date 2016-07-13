@@ -14,16 +14,20 @@ export default class TabsPage extends Component {
     
   componentWillMount()
   {
-      this.state = {selected: this.props.selected}
+      this.state =  this.props 
       let me = this;
  
-      
+      //props
+          
+      //displayText: 
+      //id 
+      //selected: 
       
   }
   
   componentWillReceiveProps(nextProps)
   {
-      this.setState({selected: nextProps.selected})
+      this.setState(nextProps)
   }
  
     
@@ -33,21 +37,19 @@ export default class TabsPage extends Component {
       postal.publish({
                    channel: "tab-system",
                    topic: "select-tab" ,
-                  data:  {arrayIndex: this.props.arrayIndex}
+                  data:  {id: this.props.id}
                }); 
       
   }
     
   removeTab(e)
   {
-      //remove-tab
-      //select-tab
-     // console.log("doing a remove "+this.props.arrayIndex+" "+e)
+      
       e.stopPropagation();
       postal.publish({
                    channel: "tab-system",
                    topic: "remove-tab" ,
-                  data:  {arrayIndex: this.props.arrayIndex}
+                  data:  {id: this.props.id}
                });
   }
   
