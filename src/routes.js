@@ -6,7 +6,7 @@ import Holder from './holder'
   
   export const  createRoutes = () => (
   <Route path="/" component={Holder} >
-    <IndexRoute component={Main} />
-     <Route path="tabs" component={TabsPage} />   
+    <IndexRoute component={TabsPage} />
+     <Route path="tabs" component={Main} />   
     
   </Route> )
