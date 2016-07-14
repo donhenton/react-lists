@@ -4,9 +4,17 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import Holder from './holder'  
   
-  export const  createRoutes = () => (
-  <Route path="/" component={Holder} >
+  export const  createRoutes = () => {
+      
+      let pathname = window.location.pathname;
+     // console.log("pathname '"+pathname+"'")
+      
+   return (
+  <Route path={pathname} component={Holder} >
     <IndexRoute component={TabsPage} />
-     <Route path="tabs" component={Main} />   
+     <Route path={pathname+"lists"} component={Main} />   
     
   </Route> )
+  
+
+}
