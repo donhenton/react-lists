@@ -20,3 +20,5 @@ This branch uses 'gulp release --production' to update the public_html folder
 uses 'gulp release --production' to update the public_html folder
 
 https://donhenton.github.io/react-lists/public_html/
+
+Routing on gh-pages uses window.location.pathname in the navcomponent and routes to handle that local development has a path of '/' where gh-pages has a path of '/react-lists/public_html/'
