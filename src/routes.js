@@ -12,7 +12,7 @@ import Holder from './holder'
    return (
   <Route path={pathname} component={Holder} >
     <IndexRoute component={TabsPage} />
-     <Route path={pathname+"tabs"} component={Main} />   
+     <Route path={pathname+"lists"} component={Main} />   
     
   </Route> )
   
