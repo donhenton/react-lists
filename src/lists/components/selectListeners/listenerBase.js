@@ -4,7 +4,7 @@ import postal from 'postal';
 import utils from './../utils'
  
 
-export default class ListItem extends Component {
+export default class ListenerBase extends Component {
         
     constructor()
     {
