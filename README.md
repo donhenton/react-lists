@@ -13,10 +13,9 @@ Demonstration of :
 * http://127.0.0.1:8080
 
  
-###gh-pages 
-This branch uses 'gulp release --production' to update the public_html folder
+
  
-##gh-pages
+## gh-pages
 uses 'gulp release --production' to update the public_html folder
 
 https://donhenton.github.io/react-lists/public_html/
